@@ -1,0 +1,28 @@
+{
+  "name": "saarthaksaxena.tech",
+  "version": "1.0.0",
+  "description": "my website",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "saarthak s",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saarthakkj/Saarthakkj.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Saarthakkj/Saarthakkj.github.io/issues"
+  },
+  "homepage": "https://github.com/Saarthakkj/Saarthakkj.github.io#readme",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.1.3"
+  }
+}
