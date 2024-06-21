@@ -19,10 +19,15 @@ k.loadSprite("map" , "./map.png") ;
 k.setBackground(k.Color.fromHex("#311047")) ; 
 
 //creating our first scene 
+//in kanoom  js
 k.scene("main" , async () => {
     const mapData = await(await fetch("./map.json")).json() ;
+    //load the data until not mobin it
+
     const layers = mapData.layers ;
 
+
+    // map is the game object
     const map = k.make([
         k.sprite("map") , 
         k.pos(0), //the initial position of the sprite when the game is loaded
@@ -47,6 +52,8 @@ k.scene("main" , async () => {
         "player" , 
     ]) ; 
 
+
+    //when hit by the boundary: 
     for(const layer of layers){
         if(layer.name == "boundaries"){
             for(const boundary of layer.objects){
@@ -55,19 +62,47 @@ k.scene("main" , async () => {
                         shape: new k.Rect(k.vec2(0) , boundary.width , boundary.height) , 
                     }) , 
                     k.body({isStatic : true}) , 
-                    k.pos(boundary.x , boundar.y) , 
+                    k.pos(boundary.x , boundary.y) , 
                     boundary.name , 
                 ]) ; 
 
                 if(boundary.name){
                     player.onCollide(boundary.name , ()=>{
                         player.isInDialogue = true ;
+
                         //TODO : add dialogue
+                        const dialogues = require("./dialogues.json") ;
+                        const dialogue = dialogues[boundary.name];
+                        if(dialogue){
+                            //TODO: dialogue display logic
+                            console.log(dialogue);
+                        }
+                        else{
+                            console.log("error in displaying dialogues");
+                        }
                     })
                 }
             }
         }
     }
+
+    k.keyDown("left", () => {
+        player.move(-player.speed, 0);
+    });
+    
+    k.keyDown("right", () => {
+        player.move(player.speed, 0);
+    });
+    
+    k.keyDown("up", () => {
+        player.move(0, -player.speed);
+    });
+    
+    k.keyDown("down", () => {
+        player.move(0, player.speed);
+    });
+
+
 })
 
 k.go("main")
