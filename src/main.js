@@ -1,5 +1,7 @@
+import { dialogueData  , scaleFactor } from "./constants";
 import { k } from "./kaboomCtx";
-import { scaleFactor } from "./constants";
+import { displayDialogue  , setCamScale } from "./utils";
+
 
 k.loadSprite("spritesheet" , "./spritesheet.png" , {
     sliceX: 39 , 
@@ -16,7 +18,7 @@ k.loadSprite("spritesheet" , "./spritesheet.png" , {
 
 k.loadSprite("map" , "./map.png") ; 
 
-k.setBackground(k.Color.fromHex("#311047")) ; 
+k.setBackground(k.Color.fromHex("#000000")) ; 
 
 //creating our first scene 
 //in kanoom  js
@@ -28,14 +30,15 @@ k.scene("main" , async () => {
 
 
     // map is the game object
-    const map = k.make([
+    const map = k.add([
         k.sprite("map") , 
         k.pos(0), //the initial position of the sprite when the game is loaded
         k.scale(scaleFactor) //scaling the sprite
     ]) ;
 
     //game object for the player: 
-    const player = k.make([
+    const player = k.make(
+        [
         k.sprite("spritesheet" , {anim: "idle-down"}),
         k.area({ 
             shape: new k.Rect(k.vec2(0, 3) , 10 , 10) 
@@ -52,9 +55,9 @@ k.scene("main" , async () => {
         "player" , 
     ]) ; 
 
-
-    //when hit by the boundary: 
+ 
     for(const layer of layers){
+        //when hit by boundary
         if(layer.name == "boundaries"){
             for(const boundary of layer.objects){
                 map.add([
@@ -67,24 +70,87 @@ k.scene("main" , async () => {
                 ]) ; 
 
                 if(boundary.name){
+                    //console.log("reached the spawn points ") ;
                     player.onCollide(boundary.name , ()=>{
                         player.isInDialogue = true ;
 
-                        //TODO : add dialogue
-                        const dialogues = require("./dialogues.json") ;
-                        const dialogue = dialogues[boundary.name];
-                        if(dialogue){
-                            //TODO: dialogue display logic
-                            console.log(dialogue);
-                        }
-                        else{
-                            console.log("error in displaying dialogues");
-                        }
+                        displayDialogue(dialogueData[boundary.name] , () => {
+                            player.isInDialogue = false ;
+                        });
                     })
                 }
             }
+            continue;
         }
+        //when hit by spawn points
+        if(layer.name == "spawnpoints"){
+            for(const spawnpoint of layer.objects){
+                if(spawnpoint.name == "player"){
+                    player.pos = k.vec2((map.pos.x + spawnpoint.x)*scaleFactor , (map.pos.y+ spawnpoint.y)*scaleFactor );
+                    k.add(player) ;
+                    continue;
+                }
+            }
+        }
+
     }
+
+    setCamScale(k) ;    
+
+    k.onResize(() => {
+        setCamScale(k);
+    });
+
+    k.onUpdate(() => {
+        k.camPos(player.worldPos().x, player.worldPos().y+ 100);
+    });
+
+    k.onMouseDown((mouseBtn) => {
+        if (mouseBtn !== "left" || player.isInDialogue) return;
+    
+        const worldMousePos = k.toWorld(k.mousePos());
+        player.moveTo(worldMousePos, player.speed);
+    
+        const mouseAngle = player.pos.angle(worldMousePos);
+    
+        const lowerBound = 50;
+        const upperBound = 125;
+    
+        if (
+          mouseAngle > lowerBound &&
+          mouseAngle < upperBound &&
+          player.curAnim() !== "walk-up"
+        ) {
+          player.play("walk-up");
+          player.direction = "up";
+          return;
+        }
+    
+        if (
+          mouseAngle < -lowerBound &&
+          mouseAngle > -upperBound &&
+          player.curAnim() !== "walk-down"
+        ) {
+          player.play("walk-down");
+          player.direction = "down";
+          return;
+        }
+    
+        if (Math.abs(mouseAngle) > upperBound) {
+          player.flipX = false;
+          if (player.curAnim() !== "walk-side") player.play("walk-side");
+          player.direction = "right";
+          return;
+        }
+    
+        if (Math.abs(mouseAngle) < lowerBound) {
+          player.flipX = true;
+          if (player.curAnim() !== "walk-side") player.play("walk-side");
+          player.direction = "left";
+          return;
+        }
+      });
+    
 
     k.keyDown("left", () => {
         player.move(-player.speed, 0);
@@ -103,6 +169,6 @@ k.scene("main" , async () => {
     });
 
 
-})
+});
 
-k.go("main")
+k.go("main");
