@@ -30,5 +30,4 @@ jobs:
           path: ./build  # Set this to your build output directory
 
       - name: Deploy GitHub Pages site
-        id: deploy
         uses: actions/deploy-pages@v1
