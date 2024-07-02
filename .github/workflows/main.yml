@@ -7,9 +7,16 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # This is important for deployment to GitHub Pages
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Updated to v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # Using Node.js 20
 
       - name: Build
         run: |
@@ -23,7 +30,7 @@ jobs:
         run: |
           # Add commands to report build status
           # For example:
-          # echo "Build completed successfully"
+          echo "Build completed successfully"
         timeout-minutes: 3
 
       - name: Deploy to GitHub Pages
