@@ -1,7 +1,7 @@
 export const scaleFactor = 4;
 
 export const dialogueData = {
-  roomate-pc: 'this is roomates pc',
+  "roomate-pc": 'this is roomates pc',
   pc: `This is my PC. Anyway regardless of the language, I just like programming.
     Here is my <a href="https://github.com/saarthakkj" target="_blank">Github</a>!`,
   "sofa-table": `That's my sofa. I like to relax here and watch YouTube. `,
