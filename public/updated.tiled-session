@@ -1,0 +1,55 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "#spritesheet": {
+            "scaleInDock": 1
+        },
+        "basic.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        },
+        "map.json": {
+            "scale": 3.518518518518518,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 215.85789473684216,
+                "y": 103.73684210526318
+            }
+        },
+        "map.json#spritesheet": {
+            "scaleInDock": 1
+        },
+        "spritesheet.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1.5
+        },
+        "updated-tiled/spritesheet.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.externalTilesetPath": "C:/Users/Saarthak/Desktop/saarthaksaxena.tech/public/updated-tiled",
+    "last.imagePath": "C:/Users/Saarthak/Desktop/saarthaksaxena.tech/public",
+    "openFiles": [
+    ],
+    "project": "updated.tiled-project",
+    "recentFiles": [
+        "map.json",
+        "spritesheet.tsx",
+        "updated-tiled/spritesheet.tsx",
+        "basic.tsx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
+    "tileset.tileSize": {
+        "height": 36,
+        "width": 36
+    }
+}
