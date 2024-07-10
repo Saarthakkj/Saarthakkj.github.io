@@ -32,7 +32,8 @@ k.scene("main" , async () => {
     // map is the game object
     const map = k.add([
         k.sprite("map") , 
-        k.pos(0), //the initial position of the sprite when the game is loaded
+        k.anchor("center") ,
+        k.pos(), //the initial position of the sprite when the game is loaded
         k.scale(scaleFactor) //scaling the sprite
     ]) ;
 
@@ -63,18 +64,19 @@ k.scene("main" , async () => {
                 console.log("boundary hit  :"  , boundary.name);
                 map.add([
                     k.area({
-                        shape: new k.Rect(k.vec2(0) , boundary.width , boundary.height) , 
+                        shape: new k.Rect(k.vec2(0) , boundary.width, boundary.height ) , 
                     }) , 
-                    k.body({isStatic : true}) , 
-                    k.pos(boundary.x * scaleFactor , boundary.y *scaleFactor) , 
+                    k.body({isStatic : true}) ,
+                    console.log("boundary.x : " , boundary.x, "boundary.y : " , boundary.y) , 
+                    k.pos(boundary.x, boundary.y ) , 
                     boundary.name , 
                 ]) ; 
 
                 if(boundary.name){
-                    //console.log("reached the spawn points ") ;
+                    //console.log("boundary name hit : " , boundary.name);
                     player.onCollide(boundary.name , ()=>{
                         player.isInDialogue = true ;
-
+                        console.log("player collided with boundary : " , boundary.name);
                         displayDialogue(dialogueData[boundary.name] , () => {
                             player.isInDialogue = false ;
                         });
@@ -83,14 +85,14 @@ k.scene("main" , async () => {
             }
             continue;
         }
+        console.log("loaded till here");
         // Adjusting player's initial position calculation
         if(layer.name == "spawnpoints"){
             for(const spawnpoint of layer.objects){
                 if(spawnpoint.name == "player"){
-                    // Ensure the player's position is correctly calculated with respect to the scaleFactor and map's position
-                    // Adjusting the calculation to account for the scaleFactor and map's initial position
-                    player.pos = k.vec2(1000 , 800);
-                    k.add(player);
+                    console.log("spawnpoint x: " , spawnpoint.x *3 , " spawnpoint y"  ,  spawnpoint.y*3);
+                    player.pos = k.vec2(map.pos.x + spawnpoint.x * scaleFactor, map.pos.y + spawnpoint.y * scaleFactor);
+                    k.add(player);  
                     continue;
                 }
             }
@@ -106,6 +108,7 @@ k.scene("main" , async () => {
 
     k.onUpdate(() => {
         k.camPos(player.worldPos().x, player.worldPos().y);
+        console.log("player world pos : " , player.worldPos().x , player.worldPos().y);
     });
 
     k.onMouseDown((mouseBtn) => {

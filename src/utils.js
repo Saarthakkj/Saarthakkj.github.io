@@ -5,6 +5,7 @@ export function displayDialogue(text, onDisplayEnd) {
     dialogueUI.style.display = "block";
     let index = 0;
     let currentText = "";
+    console.log("displaying dialogue of :   " , text);
     const intervalRef = setInterval(() => {
       if (index < text.length) {
         currentText += text[index];
