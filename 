@@ -1,0 +1,77 @@
+*   [33mc27a913[m[33m ([m[1;36mHEAD -> [m[1;32mfirst-draft[m[33m)[m Merge commit '103a0c753b7290e00bbc672110b62b00773535c9' as 'careers'
+[31m|[m[32m\[m  
+[31m|[m * [33m103a0c7[m Squashed 'careers/' content from commit a422c21
+* [33m18e0847[m some changes
+[32m|[m * [33ma422c21[m[33m ([m[1;31mcareers_repo/main[m[33m)[m added some backend for testing google sheets api
+[32m|[m * [33mb872ebd[m made-frontend
+[32m|[m * [33m9d154f9[m Initial commit
+[32m|[m *   [33m59c6cf7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Merge pull request #10 from Saarthakkj/first-draft
+[32m|[m [34m|[m[32m\[m  
+[32m|[m [34m|[m[32m/[m  
+[32m|[m[32m/[m[34m|[m   
+* [34m|[m [33me466acb[m[33m ([m[1;31morigin/first-draft[m[33m)[m fixed the bug of walk-through-walls
+[35m|[m * [33m9e8cdd3[m Update main.yml
+[35m|[m * [33maad63d4[m Update main.yml
+[35m|[m *   [33m18fa2d4[m Merge pull request #9 from Saarthakkj/first-draft
+[35m|[m [36m|[m[35m\[m  
+[35m|[m [36m|[m[35m/[m  
+[35m|[m[35m/[m[36m|[m   
+* [36m|[m [33me6228f8[m updated constants.js(resume)
+[1;31m|[m * [33m03ec987[m Update main.yml
+[1;31m|[m * [33m634cee5[m Update main.yml
+[1;31m|[m * [33m783f1c0[m Update main.yml
+[1;31m|[m * [33mf81e7e9[m Update main.yml
+[1;31m|[m * [33m26f31b3[m Update main.yml
+[1;31m|[m * [33mf08db87[m Update main.yml
+[1;31m|[m * [33mc6af597[m Update main.yml
+[1;31m|[m * [33mdf6eb3b[m Create main.yml
+[1;31m|[m * [33m4360ef6[m Update README.md
+[1;31m|[m *   [33mbf315ca[m Merge pull request #8 from Saarthakkj/first-draft
+[1;31m|[m [1;32m|[m[1;31m\[m  
+[1;31m|[m [1;32m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[1;32m|[m   
+* [1;32m|[m [33mf46f002[m Update constants.js
+[1;33m|[m *   [33m03e06de[m Merge pull request #7 from Saarthakkj/first-draft
+[1;33m|[m [1;34m|[m[1;33m\[m  
+[1;33m|[m [1;34m|[m[1;33m/[m  
+[1;33m|[m[1;33m/[m[1;34m|[m   
+* [1;34m|[m [33m20bd57e[m almost-made-hostel-clone
+[1;35m|[m *   [33m1997178[m Merge pull request #6 from Saarthakkj/first-draft
+[1;35m|[m [1;36m|[m[1;35m\[m  
+[1;35m|[m [1;36m|[m[1;35m/[m  
+[1;35m|[m[1;35m/[m[1;36m|[m   
+* [1;36m|[m [33m4b74682[m implemented the game
+[31m|[m *   [33m936cd39[m Merge pull request #5 from Saarthakkj/first-draft
+[31m|[m [32m|[m[31m\[m  
+[31m|[m [32m|[m[31m/[m  
+[31m|[m[31m/[m[32m|[m   
+* [32m|[m [33mf10706f[m update inddex.html
+* [32m|[m [33m48ea534[m first pr for poke-portfolio (added kaboom js objects in the main.jsx)
+[33m|[m *   [33m260c703[m Merge pull request #4 from Saarthakkj/first-draft
+[33m|[m [34m|[m[33m\[m  
+[33m|[m [34m|[m[33m/[m  
+[33m|[m[33m/[m[34m|[m   
+* [34m|[m [33m172de95[m firat draft
+[35m|[m *   [33md27403f[m Merge pull request #3 from Saarthakkj/first-draft
+[35m|[m [36m|[m[35m\[m  
+[35m|[m [36m|[m[35m/[m  
+[35m|[m[35m/[m[36m|[m   
+* [36m|[m [33m7197482[m Update package.json
+[1;31m|[m *   [33mcb415df[m Merge pull request #2 from Saarthakkj/first-draft
+[1;31m|[m [1;32m|[m[1;31m\[m  
+[1;31m|[m [1;32m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[1;32m|[m   
+* [1;32m|[m [33m02b0849[m Update index.html
+[1;33m|[m *   [33mcf2a2d5[m Merge pull request #1 from Saarthakkj/first-draft
+[1;33m|[m [1;34m|[m[1;33m\[m  
+[1;33m|[m [1;34m|[m[1;33m/[m  
+[1;33m|[m[1;33m/[m[1;34m|[m   
+* [1;34m|[m [33mc3fac4a[m first-draft-first-commit
+[1;34m|[m[1;34m/[m  
+* [33m2c470bc[m added app.jsx and project.html
+* [33mbac56cb[m Create static.yml
+* [33m8c5232a[m Create jekyll-gh-pages.yml
+* [33m083c9c1[m Create CNAME
+* [33m13058f3[m basic website
+* [33md65b823[m Initial commit
+* [33m2ebf3d6[m[33m ([m[1;31morigin/gh-pages[m[33m)[m deploy: 03ec98759ea87d0bb20b76e4565e0166056faa85
