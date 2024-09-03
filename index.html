@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Saarthak's portfolio</title>
+    <script type="module" crossorigin src="./assets/index-CvcRp53W.js"></script>
   </head>
   <body>
     <style>
@@ -71,8 +72,26 @@
         flex-direction: column;
         color: rgb(238, 238, 238);
       }
+
+      nav {
+        position: absolute;
+        top: 1vh;
+        right: 5%;
+        display: flex;
+        gap: 1rem;
+      }
+
+      nav a {
+        color: rgb(238, 238, 238);
+        text-decoration: none;
+        font-family: monogram, monospace;
+      }
     </style>
-     <div id="app">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/careers">Careers</a>
+    </nav>
+    <div id="app">
       <div>
         <p class="note">Tap/Click around to move</p>
 
@@ -87,6 +106,5 @@
       </div>
       <canvas id="game"></canvas>
     </div>
-    <script type="module" src="src/main.js"></script>
   </body>
 </html>
