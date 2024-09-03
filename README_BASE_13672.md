@@ -1,2 +1,0 @@
-# saarthaksaxena.tech
-my website
