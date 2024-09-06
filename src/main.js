@@ -85,12 +85,12 @@ k.scene("main" , async () => {
             }
             continue;
         }
-        console.log("loaded till here");
+        // console.log("loaded till here");
         // Adjusting player's initial position calculation
         if(layer.name == "spawnpoints"){
             for(const spawnpoint of layer.objects){
                 if(spawnpoint.name == "player"){
-                    console.log("spawnpoint x: " , spawnpoint.x *3 , " spawnpoint y"  ,  spawnpoint.y*3);
+                    // console.log("spawnpoint x: " , spawnpoint.x *3 , " spawnpoint y"  ,  spawnpoint.y*3);
                     player.pos = k.vec2(map.pos.x + spawnpoint.x * scaleFactor, map.pos.y + spawnpoint.y * scaleFactor);
                     k.add(player);  
                     continue;
@@ -108,13 +108,14 @@ k.scene("main" , async () => {
 
     k.onUpdate(() => {
         k.camPos(player.worldPos().x, player.worldPos().y);
-        console.log("player world pos : " , player.worldPos().x , player.worldPos().y);
+        // console.log("player world pos : " , player.worldPos().x , player.worldPos().y);
     });
 
     k.onMouseDown((mouseBtn) => {
-        console.log("mouse pressed down");
+        // console.log("mouse pressed down");
         if (mouseBtn !== "left" || player.isInDialogue) return;
     
+        
         const worldMousePos = k.toWorld(k.mousePos());
         player.moveTo(worldMousePos, player.speed);
     
