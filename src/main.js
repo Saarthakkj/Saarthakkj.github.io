@@ -75,6 +75,7 @@ k.scene("main" , async () => {
                     //console.log("boundary name hit : " , boundary.name);
                     player.onCollide(boundary.name , ()=>{
                         player.isInDialogue = true ;
+                        player.isMoving = false ;
                         console.log("player collided with boundary : " , boundary.name);
                         displayDialogue(dialogueData[boundary.name] , () => {
                             player.isInDialogue = false ;
