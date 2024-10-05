@@ -15,14 +15,14 @@ k.loadSprite("spritesheet" , "/public/spritesheet.png" , {
     }
 });
 
-k.loadSprite("map" , "/myroom.png") ; 
+k.loadSprite("map" , "/public/myroom.png") ; 
 
 k.setBackground(k.Color.fromHex("#000000")) ; 
 
 //creating our first scene 
 //in kanoom  js
 k.scene("main" , async () => {
-    const mapData = await(await fetch("/myroom.json")).json() ;
+    const mapData = await(await fetch("/public/myroom.json")).json() ;
     //load the data until not mobin it
 
     const layers = mapData.layers ;
