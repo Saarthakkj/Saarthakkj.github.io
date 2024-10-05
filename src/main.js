@@ -2,7 +2,7 @@ import { dialogueData, scaleFactor } from "./constants.js";
 import { k } from "./kaboomCtx.js";
 import { displayDialogue, setCamScale } from "./utils.js";
 
-k.loadSprite("spritesheet" , "./spritesheet.png" , {
+k.loadSprite("spritesheet" , "/spritesheet.png" , {
     sliceX: 39 , 
     sliceY: 31 , 
     anims : {
@@ -15,14 +15,14 @@ k.loadSprite("spritesheet" , "./spritesheet.png" , {
     }
 });
 
-k.loadSprite("map" , "./myroom.png") ; 
+k.loadSprite("map" , "/myroom.png") ; 
 
 k.setBackground(k.Color.fromHex("#000000")) ; 
 
 //creating our first scene 
 //in kanoom  js
 k.scene("main" , async () => {
-    const mapData = await(await fetch("./myroom.json")).json() ;
+    const mapData = await(await fetch("/myroom.json")).json() ;
     //load the data until not mobin it
 
     const layers = mapData.layers ;
